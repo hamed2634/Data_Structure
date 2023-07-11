@@ -18,8 +18,6 @@ void Push(Queue* pq, int val){
 		pq->back->next = pn;
 		pq->back = pn;
 	}
-	
-
 	pq->size++;
 }
 
@@ -32,6 +30,7 @@ void Serve(QueueEntry* pe,Queue* pq){
 	QueueNode* pn = pq->front;
 	pq->front= pq->front->next;
 	free(pn);
+	if(!pq->front) pq->back = NULL;
 	pq->size--;
 }
 
