@@ -34,10 +34,11 @@ int Stack_Size(Stack* ps){
 }
 
 void Clear_Stack(Stack* ps){
-	for(StackNode* pn = ps->top; pn;pn = pn->next)
-	{
-		free(pn);
-		ps->top = pn;
+	StackNode* pn = ps->top;
+	while(pn){
+		pn = pn->next;
+		free(ps->top);
+		ps->top = pn;		
 	}
 	ps->size = 0;
 }

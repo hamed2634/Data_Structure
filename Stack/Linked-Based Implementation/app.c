@@ -2,8 +2,9 @@
 
 int main(){
 	Stack s;
+	int exit = 0;
 	Initialize_Stack(&s);
-	printf("\nStack Is Initialized!\n");
+	printf("Stack Is Initialized!\n");
 	while(1){
 		printf("\nChoose An Operation: \n"
 			   "1- Push Element\n"
@@ -12,16 +13,16 @@ int main(){
 			   "4- Check If empty\n"
 			   "5- Print The Size\n"
 			   "6- Traverse The Stack\n"
-			   "7- Clear The Stack\n");
+			   "7- Clear The Stack\n"
+			   "8- Exit Program\n");
 		int operation = string_to_int(takestring_v2());
+		int times = 0;
 		StackEntry e;
 		switch(operation){
 			case 1:
-				printf("\nEnter Number of Elements You want To Push: ");
-				int times = string_to_int(takestring_v2());
-				while(times--){
-					printf("\nEnter Element To Push: ");
-					int val = string_to_int(takestring_v2());
+				times = getnumber("\nEnter Number of Elements You want To Push: ",MAX_TRIES);
+				while(times != invalid && times > 0 && times--){
+					int val = getnumber("\nEnter Element To Push: ",MAX_TRIES);
 					Push(&s, val);
 				}
 				break;
@@ -69,10 +70,15 @@ int main(){
 				Clear_Stack(&s);
 				printf("\nStack Cleared Successfully!\n");
 				break;
+			case 8:
+				exit = 1;
 			default:
 				printf("\nInvalid Choice!\n");
 		}
+		if(exit){
+			Clear_Stack(&s);
+			break;
+		}
 	}
-	getchar();
 	return 0;
 }

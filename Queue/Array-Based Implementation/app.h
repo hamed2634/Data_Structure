@@ -1,4 +1,4 @@
 #ifndef APP_H
-	#include "stack.h"
+	#include "queue.h"
 	#define MAX_TRIES infinite
 #endif
