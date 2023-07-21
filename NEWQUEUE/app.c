@@ -85,7 +85,6 @@ int main(){
 				break;
 			case 9:
 				exit = 1;
-				break;
 			default:
 				printf("\nInvalid Choice!\n");
 		}

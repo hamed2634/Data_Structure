@@ -1,4 +1,5 @@
 #ifndef QUEUE_H
+#define QUEUE_H
 	#include "..\.\lib\lib.h"
 	
 	#define MAX_SIZE 1000
